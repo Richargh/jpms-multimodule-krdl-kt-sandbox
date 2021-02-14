@@ -1,10 +1,14 @@
 = JPMS with Kotlin Sandbox
 
+INFO: Sadly this implementation does not quite work.
+It compiles and everything but only the `requires` directive from the `module-info` is actually enforced.
+`exports` do not have to be declared and that makes this JPMS Sandbox currently rather useless :(
+
 *Features*
 
 * JVM 11
 * Java Platform Module System (JPMS)
-* Multiple Kotlin Moudles
+* Multiple Kotlin Modules
 
 == Usage
 
@@ -20,3 +24,11 @@
 ** Check the gradle it uses: Settings->Build, Execution,...->Build Tools->Gradle->Gradle JVM
 ** Right click your project and open the Module Settings->Project->Project SDK
 
+== JPMS
+
+The Java Platform Module System (JPMS) is available since Java 9.
+
+Useful Links are:
+
+* link:https://blog.jetbrains.com/idea/2017/10/real-world-java-9/[Real World Java 9]
+* link:https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_modular[Gradle: Building Modules for the Java Module System]
