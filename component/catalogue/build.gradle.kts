@@ -3,8 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
+    id("java")
 
-    // order is important, apply these plugins last
     id("java-test-fixtures")
 }
 
@@ -12,6 +12,16 @@ tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "11"
+    }
+}
+
+java {
+    modularity.inferModulePath.set(true)
+}
+
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "de.richargh.sandbox.jpms.catalogue")
     }
 }
 

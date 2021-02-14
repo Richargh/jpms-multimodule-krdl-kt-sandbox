@@ -2,8 +2,13 @@ import de.richargh.sandbox.jpms.Deps
 
 plugins {
     kotlin("jvm")
+    id("java")
 
     id("java-test-fixtures")
+}
+
+java {
+    modularity.inferModulePath.set(true)
 }
 
 dependencies {
@@ -21,4 +26,10 @@ dependencies {
 
     /** Test fixtures **/
     testFixturesApi("org.junit.jupiter:junit-jupiter-api:${Deps.Junit.version}")
+}
+
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "de.richargh.sandbox.jpms.shared_kernel")
+    }
 }

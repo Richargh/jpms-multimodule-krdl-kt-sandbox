@@ -4,6 +4,12 @@ plugins {
     kotlin("jvm")
 }
 
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "de.richargh.sandbox.jpms.catalogue.api")
+    }
+}
+
 dependencies {
     /** Language dependencies **/
     implementation(kotlin("stdlib-jdk8"))

@@ -12,9 +12,17 @@ tasks.withType<KotlinCompile> {
     }
 }
 
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "de.richargh.sandbox.jpms.all")
+    }
+}
+
 dependencies {
     /** Project dependencies **/
     implementation(project(":component:catalogue"))
+    implementation(project(":component:catalogue-api"))
+    implementation(project(":component:shared-kernel"))
     testImplementation(testFixtures(project(":component:catalogue")))
     testImplementation(testFixtures(project(":component:shared-kernel")))
 
